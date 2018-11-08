@@ -17,7 +17,7 @@ public class NewActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
+//
 
                 Serie serie = new Serie();
                 serie.title =findViewById(R.id.nombre_serie).toString();
