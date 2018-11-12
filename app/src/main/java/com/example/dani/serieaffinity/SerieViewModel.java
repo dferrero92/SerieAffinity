@@ -2,7 +2,10 @@ package com.example.dani.serieaffinity;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
+import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
+
+import java.util.List;
 
 public class SerieViewModel extends AndroidViewModel {
 
@@ -16,14 +19,16 @@ public class SerieViewModel extends AndroidViewModel {
 
     }
 
-    void insertSerie(Serie serie){
-        //llamar al repositorio
 
+    public void insertSerie(Serie serie){
         sRepository.insert(serie);
-
     }
 
+   LiveData<List<Serie>> getSeries(){
+        return sRepository.getSeries();
+    }
 
 }
+
 
 

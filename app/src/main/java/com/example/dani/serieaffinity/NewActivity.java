@@ -4,6 +4,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 public class NewActivity extends AppCompatActivity {
 
@@ -18,10 +19,14 @@ public class NewActivity extends AppCompatActivity {
 
 
 //
+                EditText editText = findViewById(R.id.nombre_serie);
+                String seriedada = editText.getText().toString();
 
                 Serie serie = new Serie();
-                serie.title =findViewById(R.id.nombre_serie).toString();
-                ViewModelProviders.of(NewActivity.this).get(SerieViewModel.class).insertSerie(serie);
+                serie.title = seriedada;
+
+                SerieViewModel serieViewModel = ViewModelProviders.of(NewActivity.this).get(SerieViewModel.class);
+                serieViewModel.insertSerie(serie);
 
 
 

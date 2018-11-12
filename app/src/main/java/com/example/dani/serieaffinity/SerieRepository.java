@@ -1,6 +1,9 @@
 package com.example.dani.serieaffinity;
 
 import android.app.Application;
+import android.arch.lifecycle.LiveData;
+
+import java.util.List;
 
 public class SerieRepository {
 
@@ -13,8 +16,15 @@ public class SerieRepository {
     }
 
 
-    void insert (Serie serie){
-        seriesDao.insert(serie);
+
+    public void insert(Serie serie){
+        new insertAsync
+    }
+
+
+    LiveData<List<Serie>> getSeries(){
+
+        return seriesDao.getSeries();
     }
 
 
