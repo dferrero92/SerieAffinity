@@ -14,12 +14,20 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    List<Serie> serieList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        RecyclerView recyclerView = findViewById(R.id.serie_List);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        final MyAdapter myAdapter = new MyAdapter();
+        recyclerView.setAdapter(myAdapter);
+
+
+
 
         findViewById(R.id.new_serie).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,18 +40,16 @@ public class MainActivity extends AppCompatActivity {
 
         SerieViewModel serieViewModel = ViewModelProviders.of(this).get(SerieViewModel.class);
         serieViewModel.getSeries().observe(this, new Observer<List<Serie>>() {
+
             @Override
             public void onChanged(@Nullable List<Serie> series) {
-                for (int i = 0; i <series.size() ; i++) {
-                    System.out.println(series.get(i).title);
-                    System.out.println(series.get(i).author);
-                }
+                myAdapter.setList(series);
+                myAdapter.notifyDataSetChanged();
+
             }
         });
 
 
-        RecyclerView recyclerView = findViewById(R.id.serie_List);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
 
