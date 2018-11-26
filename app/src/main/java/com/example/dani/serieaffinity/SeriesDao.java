@@ -16,6 +16,10 @@ public interface SeriesDao {
         @Query("SELECT * from Serie")
         LiveData<List<Serie>> getSeries();
 
+
+        @Query("SELECT * FROM Serie where id = :id")
+        LiveData<Serie> getSerie(int id);
+
     }
 
 

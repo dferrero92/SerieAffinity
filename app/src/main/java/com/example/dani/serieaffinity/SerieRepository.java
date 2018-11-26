@@ -22,6 +22,14 @@ public class SerieRepository {
         return seriesDao.getSeries();
     }
 
+    public LiveData<Serie> getSerie(int id){
+
+
+        return  seriesDao.getSerie(id);
+    }
+
+
+
     public void insert(Serie serie){
         new insertAsyncTask (seriesDao).execute(serie);
     }

@@ -28,6 +28,18 @@ public class SerieViewModel extends AndroidViewModel {
         return sRepository.getSeries();
     }
 
+
+
+    public LiveData<Serie> getSerie(int id){
+
+
+        return  sRepository.getSerie(id);
+    }
+
+
+
+
+
 }
 
 
